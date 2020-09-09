@@ -1,5 +1,4 @@
 include $(THEOS)/makefiles/common.mk
-TARGET = iphone:clang:13.0
 ARCHS = arm64 arm64e
 FINALPACKAGE = 1
 TWEAK_NAME = SugarCane

@@ -1,9 +1,9 @@
 Package: com.ioscreatix.sugarcane
 Name: SugarCane
 Depends: mobilesubstrate
-Version: 1.2
+Version: 1.2.1
 Architecture: iphoneos-arm
-Description: Get percentages for the sliders in the Control Center on iOS 13
+Description: Get percentages for the sliders in the Control Center on iOS 11, 12 & 13
 Maintainer: iOS Creatix, kasiimh1, baptistecdr
-Author: iOS Creatix, kasiimh1, baptistecdr
+Author: iOS Creatix, kasiimh1
 Section: Tweaks
