@@ -13,4 +13,4 @@ SugarCane_CFLAGS = -fobjc-arc
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 after-install::
-	install.exec "killall sbreload"
+	install.exec "sbreload"
