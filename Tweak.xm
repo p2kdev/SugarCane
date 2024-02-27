@@ -39,9 +39,15 @@
 				val = 100;
 			else if (arg1 < 0)
 				val = 0;
-			
-			self.percentLabel.textColor = val > 49 ? [UIColor blackColor] : [UIColor whiteColor];
-			self.percentLabel.text = [[NSString stringWithFormat:@"%.f", val] stringByAppendingString:@"%"];
+
+			if (self.frame.size.width > 15) //To handle the minimized volume hud view
+			{
+				self.percentLabel.hidden = NO;
+				self.percentLabel.textColor = val > 49 ? [UIColor blackColor] : [UIColor whiteColor];
+				self.percentLabel.text = [[NSString stringWithFormat:@"%.f", val] stringByAppendingString:@"%"];				
+			}
+			else
+				self.percentLabel.hidden = YES;
 		}
 	}
 %end
