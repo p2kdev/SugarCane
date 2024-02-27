@@ -1,9 +1,9 @@
-export PREFIX = $(THEOS)/toolchain/Xcode11.xctoolchain/usr/bin/
+export THEOS_PACKAGE_SCHEME=rootless
+export TARGET = iphone:clang:12.4:12.0
 
 PACKAGE_VERSION=$(THEOS_PACKAGE_BASE_VERSION)
 
 export ARCHS = arm64 arm64e
-export TARGET = iphone:clang:13.0:13.0
 
 include $(THEOS)/makefiles/common.mk
 TWEAK_NAME = SugarCane
