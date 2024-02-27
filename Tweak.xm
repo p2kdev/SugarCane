@@ -4,16 +4,19 @@
 @end
 
 @interface CCUIBaseSliderView : UIView
-	@property (nonatomic, retain) UILabel *percentLabel;
 	- (float)value;
 @end
 
-%hook CCUIBaseSliderView
+@interface CCUIContinuousSliderView : CCUIBaseSliderView
+	@property (nonatomic, retain) UILabel *percentLabel;
+@end
+
+%hook CCUIContinuousSliderView
 	%property (nonatomic, retain) UILabel *percentLabel;
 
 	- (id)initWithFrame:(CGRect)arg1
 	{
-		CCUIBaseSliderView *orig = %orig;
+		CCUIContinuousSliderView *orig = %orig;
 		orig.percentLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		orig.percentLabel.text = @"0%";
 		[orig addSubview:orig.percentLabel];
