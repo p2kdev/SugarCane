@@ -5,6 +5,7 @@
 
 @interface CCUIBaseSliderView : UIView
 	- (float)value;
+	@property (assign,getter=isGlyphVisible,nonatomic) BOOL glyphVisible;
 @end
 
 @interface CCUIContinuousSliderView : CCUIBaseSliderView
@@ -32,7 +33,7 @@
 
 		if (self.percentLabel)
 		{
-			if (self.frame.size.width > 20)
+			if (self.glyphVisible)
 			{
 				self.percentLabel.font = [UIFont boldSystemFontOfSize:15];
 				self.percentLabel.textColor = [self value] > 0.48 ? [UIColor blackColor] : [UIColor whiteColor];
