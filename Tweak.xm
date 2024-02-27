@@ -24,28 +24,24 @@
 		orig.percentLabel.translatesAutoresizingMaskIntoConstraints = NO;
 		[orig.percentLabel.centerXAnchor constraintEqualToAnchor:self.centerXAnchor].active = YES;
 		[orig.percentLabel.centerYAnchor constraintEqualToAnchor:self.centerYAnchor].active = YES;
+		orig.percentLabel.font = [UIFont boldSystemFontOfSize:16];
 		return orig;
 	}
 
-	- (void)layoutSubviews
+	- (void)setValue:(float)arg1
 	{
 		%orig;
 
 		if (self.percentLabel)
 		{
-			if (self.frame.size.width > 15 && self.frame.size.height > 15)
-			{
-				self.percentLabel.font = [UIFont boldSystemFontOfSize:15];
-				self.percentLabel.textColor = [self value] >= 0.49 ? [UIColor blackColor] : [UIColor whiteColor];
-				//self.percentLabel.textColor = [UIColor whiteColor];
-				self.percentLabel.text = [[NSString stringWithFormat:@"%.f", [self value]*100] stringByAppendingString:@"%"];
-				self.percentLabel.textAlignment = NSTextAlignmentCenter;
-				[self.percentLabel sizeToFit];
-				self.percentLabel.hidden = NO;
-				[self bringSubviewToFront:self.percentLabel];
-			}
-			else
-				self.percentLabel.hidden = YES;
+			float val = arg1*100;
+			if (arg1 > 1)
+				val = 100;
+			else if (arg1 < 0)
+				val = 0;
+			
+			self.percentLabel.textColor = val > 49 ? [UIColor blackColor] : [UIColor whiteColor];
+			self.percentLabel.text = [[NSString stringWithFormat:@"%.f", val] stringByAppendingString:@"%"];
 		}
 	}
 %end
