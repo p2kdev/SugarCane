@@ -33,11 +33,11 @@
 
 		if (self.percentLabel)
 		{
-			if (self.glyphVisible)
+			if (self.frame.size.width > 15 && self.frame.size.height > 15)
 			{
 				self.percentLabel.font = [UIFont boldSystemFontOfSize:15];
-				self.percentLabel.textColor = [self value] > 0.48 ? [UIColor blackColor] : [UIColor whiteColor];
-				//self.percentLabel.textColor = [UIColor whiteColor];
+				//self.percentLabel.textColor = [self value] > 0.48 ? [UIColor blackColor] : [UIColor whiteColor];
+				self.percentLabel.textColor = [UIColor whiteColor];
 				self.percentLabel.text = [[NSString stringWithFormat:@"%.f", [self value]*100] stringByAppendingString:@"%"];
 				self.percentLabel.textAlignment = NSTextAlignmentCenter;
 				[self.percentLabel sizeToFit];
