@@ -83,7 +83,6 @@ extern NSString* const kCAFilterDestOut;
 - (id)initWithFrame:(CGRect)frame {
 	CCUIBaseSliderView *orig = %orig;
 	orig.percentLabel = [[UILabel alloc] init];
-	orig.percentLabel.textColor = [UIColor whiteColor];
 	orig.percentLabel.text = @"0%";
 	orig.percentLabel.center = CGPointMake(self.bounds.size.width*0.5, self.bounds.size.height*0.85);
 	[orig addSubview:orig.percentLabel];
