@@ -40,7 +40,7 @@
 			else if (arg1 < 0)
 				val = 0;
 
-			if (self.frame.size.width > 15) //To handle the minimized volume hud view
+			if (self.frame.size.width > 15 && self.frame.size.height > 15) //To handle the minimized volume hud view
 			{
 				self.percentLabel.hidden = NO;
 				self.percentLabel.textColor = val > 49 ? [UIColor blackColor] : [UIColor whiteColor];
