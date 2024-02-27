@@ -1,6 +1,6 @@
 extern NSString* const kCAFilterDestOut;
 
-@interface CCUIModuleSliderView : UIView
+@interface CCUIBaseSliderView : UIView
 @property (nonatomic, retain) UILabel *percentLabel;
 - (float)value;
 @end
@@ -12,11 +12,11 @@ extern NSString* const kCAFilterDestOut;
 @end
 
 
-%hook CCUIModuleSliderView
+%hook CCUIBaseSliderView
 %property (nonatomic, retain) UILabel *percentLabel;
 
 - (id)initWithFrame:(CGRect)frame {
-	CCUIModuleSliderView *orig = %orig;
+	CCUIBaseSliderView *orig = %orig;
 	orig.percentLabel = [[UILabel alloc] init];
 	orig.percentLabel.textColor = [UIColor whiteColor];
 	orig.percentLabel.text = @"0%";
@@ -57,17 +57,5 @@ extern NSString* const kCAFilterDestOut;
 		}
 	}
 }
-
--(void)_updateValueForTouchLocation:(CGPoint)location withAbsoluteReference:(BOOL)absolute forContinuedGesture:(BOOL)continued {
-	%orig;
-	if (self.percentLabel) {
-		self.percentLabel.text = [[NSString stringWithFormat:@"%.f", [self value]*100] stringByAppendingString:@"%"];
-		[self.percentLabel sizeToFit];
-		if ([self valueForKey:@"_glyphPackageView"]) {
-			UIView *glyphView = (UIView *)[self valueForKey:@"_glyphPackageView"];
-			self.percentLabel.center = [self convertPoint:CGPointMake(self.bounds.size.width*0.5, self.bounds.size.height*0.85) toView:glyphView];
-		}
-
-	}
-}
 %end
+

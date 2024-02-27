@@ -1,34 +1,46 @@
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-*.deb
-*.txt
+# Created by https://www.gitignore.io/api/code,macos,theos-tweak
+# Edit at https://www.gitignore.io/?templates=code,macos,theos-tweak
 
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+### Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
+### macOS ###
+# General
 .DS_Store
-.DS_Store?
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
 ._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
 .Spotlight-V100
+.TemporaryItems
 .Trashes
-ehthumbs.db
-Thumbs.db
-obj/
-_/
-.theos/
-.theos/last_package
-.theos/fakeroot
-.theos/last_package
-theos/
-Distribution/
-packages/
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### THEOS-Tweak ###
+*.deb
+.debmake
+_
+obj
+.theos
+
+# End of https://www.gitignore.io/api/code,macos,theos-tweak
