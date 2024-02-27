@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/ioscreatix/SugarCane.svg?branch=master)](https://travis-ci.org/ioscreatix/SugarCane)
 ## SugarCane
 
-SugarCane adds percentage labels to the Control Center sliders on iOS 11.
+SugarCane adds percentage labels to the Control Center sliders on iOS 11 & 12.
 
 
 #### Support our Work

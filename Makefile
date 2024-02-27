@@ -1,4 +1,6 @@
-include $(THEOS)/makefiles/common.mk
+include ~/theos/makefiles/common.mk
+
+ARCHS = arm64 arm64e
 
 TWEAK_NAME = SugarCane
 SugarCane_FILES = Tweak.xm
