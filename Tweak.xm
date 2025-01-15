@@ -1,3 +1,7 @@
+@interface UIView (Private)
+	- (id)_viewControllerForAncestor;
+@end
+
 @interface CALayer (Private)
 	@property (nonatomic, assign) BOOL allowsGroupOpacity;
 	@property (nonatomic, assign) BOOL allowsGroupBlending;
@@ -38,16 +42,18 @@
 			if (arg1 > 1)
 				val = 100;
 			else if (arg1 < 0)
-				val = 0;
+				val = 0;				
 
-			if (self.glyphVisible) //To handle the minimized volume hud view
-			{
-				self.percentLabel.hidden = NO;
-				self.percentLabel.textColor = val > 49 ? [UIColor blackColor] : [UIColor whiteColor];
-				self.percentLabel.text = [[NSString stringWithFormat:@"%.f", val] stringByAppendingString:@"%"];				
-			}
-			else
-				self.percentLabel.hidden = YES;
+			self.percentLabel.textColor = val > 49 ? [UIColor blackColor] : [UIColor whiteColor];
+			self.percentLabel.text = [[NSString stringWithFormat:@"%.f", val] stringByAppendingString:@"%"];												
 		}
+	}
+
+	- (void)layoutSubviews {
+		%orig;
+		if (!self.isGlyphVisible && [[self _viewControllerForAncestor] isKindOfClass:NSClassFromString(@"SBElasticVolumeViewController")]) //To handle the minimized volume hud view
+			self.percentLabel.hidden = YES;
+		else
+			self.percentLabel.hidden = NO;	
 	}
 %end
